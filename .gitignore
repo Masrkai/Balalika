@@ -1,0 +1,12 @@
+# python trash
+*.pyc
+*pycache*
+
+
+# mini tests seeing how things work
+/repos
+/scripts
+
+# Scraped data
+jobs.*
+checkpoint.json
