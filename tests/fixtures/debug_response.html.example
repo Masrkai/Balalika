@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<li>
+  <div class="base-card relative w-full hover:no-underline focus:no-underline
+        base-card--link
+         base-search-card base-search-card--link job-search-card" data-entity-urn="urn:li:jobPosting:4416101000"
+    data-impression-id="jobs-search-result-0" data-reference-id="yhKuSIVvu7/hW6NYKsrEhw=="
+    data-tracking-id="uTueB1r8CIXW5pVDrGaVgw==" data-column="1" data-row="1">
+    <a class="base-card__full-link absolute top-0 right-0 bottom-0 left-0 p-0 z-[2] outline-offset-[4px]"
+      href="https://www.linkedin.com/jobs/view/software-engineer-junior-at-paces-4416101000?position=1&amp;pageNum=0&amp;refId=yhKuSIVvu7%2FhW6NYKsrEhw%3D%3D&amp;trackingId=uTueB1r8CIXW5pVDrGaVgw%3D%3D"
+      data-tracking-control-name="public_jobs_jserp-result_search-card" data-tracking-client-ingraph
+      data-tracking-will-navigate>
+      <span class="sr-only">
+        Software Engineer (Junior)
+      </span>
+    </a>
+    <div class="search-entity-media">
+      <img class="artdeco-entity-image artdeco-entity-image--square-4
+          "
+        data-delayed-url="https://media.licdn.com/dms/image/v2/D4E0BAQEkl2SXf3S0ag/company-logo_100_100/company-logo_100_100/0/1730398908387/pacesai_logo?e=2147483647&amp;v=beta&amp;t=MY41KqKcYejKtJU0RLk7s9P4t5CpmS8CRRC2HeRdErQ"
+        data-ghost-classes="artdeco-entity-image--ghost"
+        data-ghost-url="https://static.licdn.com/aero-v1/sc/h/6puxblwmhnodu6fjircz4dn4h" alt>
+    </div>
+    <div class="base-search-card__info">
+      <h3 class="base-search-card__title">
+        Software Engineer (Junior)
+      </h3>
+      <h4 class="base-search-card__subtitle">
+        <a class="hidden-nested-link" data-tracking-client-ingraph
+          data-tracking-control-name="public_jobs_jserp-result_job-search-card-subtitle" data-tracking-will-navigate
+          href="https://www.linkedin.com/company/pacesai?trk=public_jobs_jserp-result_job-search-card-subtitle">
+          Paces
+        </a>
+      </h4>
+      <!---->
+      <div class="base-search-card__metadata">
+        <span class="job-search-card__location">
+          Brooklyn, NY
+        </span>
+        <!---->
+        <time class="job-search-card__listdate" datetime="2026-05-20">
+          1 month ago
+        </time>
+        <!---->
+      </div>
+    </div>
+    <!---->
+  </div>
+</li>
+<li>
+  <div class="base-card relative w-full hover:no-underline focus:no-underline
+        base-card--link
+         base-search-card base-search-card--link job-search-card" data-entity-urn="urn:li:jobPosting:4401377473"
+    data-impression-id="jobs-search-result-1" data-reference-id="yhKuSIVvu7/hW6NYKsrEhw=="
+    data-tracking-id="5WQzxowDrjZcaBMdLSWLhA==" data-column="1" data-row="2">
+    <a class="base-card__full-link absolute top-0 right-0 bottom-0 left-0 p-0 z-[2] outline-offset-[4px]"
+      href="https://www.linkedin.com/jobs/view/software-engineer-backend-at-hifi-4401377473?position=2&amp;pageNum=0&amp;refId=yhKuSIVvu7%2FhW6NYKsrEhw%3D%3D&amp;trackingId=5WQzxowDrjZcaBMdLSWLhA%3D%3D"
+      data-tracking-control-name="public_jobs_jserp-result_search-card" data-tracking-client-ingraph
+      data-tracking-will-navigate>
+      <span class="sr-only">
+        Software Engineer, Backend
+      </span>
+    </a>
+    <div class="search-entity-media">
+      <img class="artdeco-entity-image artdeco-entity-image--square-4
+          "
+        data-delayed-url="https://media.licdn.com/dms/image/v2/D560BAQFBm1I2lwmuwQ/company-logo_100_100/B56ZeJodx8GoAg-/0/1750360776149/hifibridge_logo?e=2147483647&amp;v=beta&amp;t=uX2PRu0JZtE6pg9TuzQkOm6ehoHPnEOCPb9OrHPkEm0"
+        data-ghost-classes="artdeco-entity-image--ghost"
+        data-ghost-url="https://static.licdn.com/aero-v1/sc/h/6puxblwmhnodu6fjircz4dn4h" alt>
+    </div>
+    <div class="base-search-card__info">
+      <h3 class="base-search-card__title">
+        Software Engineer, Backend
+      </h3>
+      <h4 class="base-search-card__subtitle">
+        <a class="hidden-nested-link" data-tracking-client-ingraph
+          data-tracking-control-name="public_jobs_jserp-result_job-search-card-subtitle" data-tracking-will-navigate
+          href="https://www.linkedin.com/company/hifibridge?trk=public_jobs_jserp-result_job-search-card-subtitle">
+          HIFI
+        </a>
+      </h4>
+      <!---->
+      <div class="base-search-card__metadata">
+        <span class="job-search-card__location">
+          New York, NY
+        </span>
+        <!---->
+        <time class="job-search-card__listdate" datetime="2026-04-13">
+          2 months ago
+        </time>
+        <!---->
+      </div>
+    </div>
+    <!---->
+  </div>
+</li>
+<li>
+  <div class="base-card relative w-full hover:no-underline focus:no-underline
+        base-card--link
+         base-search-card base-search-card--link job-search-card" data-entity-urn="urn:li:jobPosting:4401727507"
+    data-impression-id="jobs-search-result-2" data-reference-id="yhKuSIVvu7/hW6NYKsrEhw=="
+    data-tracking-id="fhsiUDEvivuRBiJx3cM49A==" data-column="1" data-row="3">
+    <a class="base-card__full-link absolute top-0 right-0 bottom-0 left-0 p-0 z-[2] outline-offset-[4px]"
+      href="https://www.linkedin.com/jobs/view/software-engineer-1-at-intuit-4401727507?position=3&amp;pageNum=0&amp;refId=yhKuSIVvu7%2FhW6NYKsrEhw%3D%3D&amp;trackingId=fhsiUDEvivuRBiJx3cM49A%3D%3D"
+      data-tracking-control-name="public_jobs_jserp-result_search-card" data-tracking-client-ingraph
+      data-tracking-will-navigate>
+      <span class="sr-only">
+        Software Engineer 1
+      </span>
+    </a>
+    <div class="search-entity-media">
+      <img class="artdeco-entity-image artdeco-entity-image--square-4
+          "
+        data-delayed-url="https://media.licdn.com/dms/image/v2/C560BAQFTpF8uneqScw/company-logo_100_100/company-logo_100_100/0/1661446146222/intuit_logo?e=2147483647&amp;v=beta&amp;t=5hsEsGdMVVpQSXz7yjJc2fshydqwaa7AOmiIPwuwgmA"
+        data-ghost-classes="artdeco-entity-image--ghost"
+        data-ghost-url="https://static.licdn.com/aero-v1/sc/h/6puxblwmhnodu6fjircz4dn4h" alt>
+    </div>
+    <div class="base-search-card__info">
+      <h3 class="base-search-card__title">
+        Software Engineer 1
+      </h3>
+      <h4 class="base-search-card__subtitle">
+        <a class="hidden-nested-link" data-tracking-client-ingraph
+          data-tracking-control-name="public_jobs_jserp-result_job-search-card-subtitle" data-tracking-will-navigate
+          href="https://www.linkedin.com/company/intuit?trk=public_jobs_jserp-result_job-search-card-subtitle">
+          Intuit
+        </a>
+      </h4>
+      <!---->
+      <div class="base-search-card__metadata">
+        <span class="job-search-card__location">
+          New York, NY
+        </span>
+        <div class="job-posting-benefits text-sm">
+          <icon class="job-posting-benefits__icon"
+            data-delayed-url="https://static.licdn.com/aero-v1/sc/h/3p1v0uhy7uq0cm5zdvzp4eo18"
+            data-svg-class-name="job-posting-benefits__icon-svg"></icon>
+          <span class="job-posting-benefits__text">
+            Actively Hiring
+            <!----> </span>
+        </div>
+        <time class="job-search-card__listdate" datetime="2026-06-17">
+          2 weeks ago
+        </time>
+        <!---->
+      </div>
+    </div>
+    <!---->
+  </div>
+</li>
+<li>
+  <div class="base-card relative w-full hover:no-underline focus:no-underline
+        base-card--link
+         base-search-card base-search-card--link job-search-card" data-entity-urn="urn:li:jobPosting:4205003719"
+    data-impression-id="jobs-search-result-3" data-reference-id="yhKuSIVvu7/hW6NYKsrEhw=="
+    data-tracking-id="gpUhkOHsiufHCk9wtOD78g==" data-column="1" data-row="4">
+    <a class="base-card__full-link absolute top-0 right-0 bottom-0 left-0 p-0 z-[2] outline-offset-[4px]"
+      href="https://www.linkedin.com/jobs/view/software-engineer-at-middesk-4205003719?position=4&amp;pageNum=0&amp;refId=yhKuSIVvu7%2FhW6NYKsrEhw%3D%3D&amp;trackingId=gpUhkOHsiufHCk9wtOD78g%3D%3D"
+      data-tracking-control-name="public_jobs_jserp-result_search-card" data-tracking-client-ingraph
+      data-tracking-will-navigate>
+      <span class="sr-only">
+        Software Engineer
+      </span>
+    </a>
+    <div class="search-entity-media">
+      <img class="artdeco-entity-image artdeco-entity-image--square-4
+          "
+        data-delayed-url="https://media.licdn.com/dms/image/v2/D4E0BAQGuzQ2U_SxaFQ/company-logo_100_100/B4EZ0p324aIkAU-/0/1774524002250/middesk_logo?e=2147483647&amp;v=beta&amp;t=uk_yBEWIPYjZ5AtqUvoyxr0GRaETzk1j72oaC6Ebhlc"
+        data-ghost-classes="artdeco-entity-image--ghost"
+        data-ghost-url="https://static.licdn.com/aero-v1/sc/h/6puxblwmhnodu6fjircz4dn4h" alt>
+    </div>
+    <div class="base-search-card__info">
+      <h3 class="base-search-card__title">
+        Software Engineer
+      </h3>
+      <h4 class="base-search-card__subtitle">
+        <a class="hidden-nested-link" data-tracking-client-ingraph
+          data-tracking-control-name="public_jobs_jserp-result_job-search-card-subtitle" data-tracking-will-navigate
+          href="https://www.linkedin.com/company/middesk?trk=public_jobs_jserp-result_job-search-card-subtitle">
+          Middesk
+        </a>
+      </h4>
+      <!---->
+      <div class="base-search-card__metadata">
+        <span class="job-search-card__location">
+          New York, United States
+        </span>
+        <!---->
+        <time class="job-search-card__listdate" datetime="2026-06-20">
+          2 weeks ago
+        </time>
+        <!---->
+      </div>
+    </div>
+    <!---->
+  </div>
+</li>
+<li>
+  <div class="base-card relative w-full hover:no-underline focus:no-underline
+        base-card--link
+         base-search-card base-search-card--link job-search-card" data-entity-urn="urn:li:jobPosting:4426517738"
+    data-impression-id="jobs-search-result-4" data-reference-id="yhKuSIVvu7/hW6NYKsrEhw=="
+    data-tracking-id="tdsGUpKFGihLWjzcKiOTQw==" data-column="1" data-row="5">
+    <a class="base-card__full-link absolute top-0 right-0 bottom-0 left-0 p-0 z-[2] outline-offset-[4px]"
+      href="https://www.linkedin.com/jobs/view/new-grad-software-engineer-at-confido-4426517738?position=5&amp;pageNum=0&amp;refId=yhKuSIVvu7%2FhW6NYKsrEhw%3D%3D&amp;trackingId=tdsGUpKFGihLWjzcKiOTQw%3D%3D"
+      data-tracking-control-name="public_jobs_jserp-result_search-card" data-tracking-client-ingraph
+      data-tracking-will-navigate>
+      <span class="sr-only">
+        New Grad Software Engineer
+      </span>
+    </a>
+    <div class="search-entity-media">
+      <img class="artdeco-entity-image artdeco-entity-image--square-4
+          "
+        data-delayed-url="https://media.licdn.com/dms/image/v2/D4E0BAQH_cCz9VXIQ0A/company-logo_100_100/B4EZiFpifXHEAQ-/0/1754588916004/confidotech_logo?e=2147483647&amp;v=beta&amp;t=r50BN_5Abu2lA1AjHUTQmkvldRt6rRfXYsmAVzaemLc"
+        data-ghost-classes="artdeco-entity-image--ghost"
+        data-ghost-url="https://static.licdn.com/aero-v1/sc/h/6puxblwmhnodu6fjircz4dn4h" alt>
+    </div>
+    <div class="base-search-card__info">
+      <h3 class="base-search-card__title">
+        New Grad Software Engineer
+      </h3>
+      <h4 class="base-search-card__subtitle">
+        <a class="hidden-nested-link" data-tracking-client-ingraph
+          data-tracking-control-name="public_jobs_jserp-result_job-search-card-subtitle" data-tracking-will-navigate
+          href="https://www.linkedin.com/company/confidotech?trk=public_jobs_jserp-result_job-search-card-subtitle">
+          Confido
+        </a>
+      </h4>
+      <!---->
+      <div class="base-search-card__metadata">
+        <span class="job-search-card__location">
+          New York, United States
+        </span>
+        <!---->
+        <time class="job-search-card__listdate" datetime="2026-05-15">
+          1 month ago
+        </time>
+        <!---->
+      </div>
+    </div>
+    <!---->
+  </div>
+</li>
+<li>
+  <div class="base-card relative w-full hover:no-underline focus:no-underline
+        base-card--link
+         base-search-card base-search-card--link job-search-card" data-entity-urn="urn:li:jobPosting:4408758326"
+    data-impression-id="jobs-search-result-5" data-reference-id="yhKuSIVvu7/hW6NYKsrEhw=="
+    data-tracking-id="JC5f2Pascq2fGcCv+05siQ==" data-column="1" data-row="6">
+    <a class="base-card__full-link absolute top-0 right-0 bottom-0 left-0 p-0 z-[2] outline-offset-[4px]"
+      href="https://www.linkedin.com/jobs/view/software-engineer-at-flip-4408758326?position=6&amp;pageNum=0&amp;refId=yhKuSIVvu7%2FhW6NYKsrEhw%3D%3D&amp;trackingId=JC5f2Pascq2fGcCv%2B05siQ%3D%3D"
+      data-tracking-control-name="public_jobs_jserp-result_search-card" data-tracking-client-ingraph
+      data-tracking-will-navigate>
+      <span class="sr-only">
+        Software Engineer
+      </span>
+    </a>
+    <div class="search-entity-media">
+      <img class="artdeco-entity-image artdeco-entity-image--square-4
+          "
+        data-delayed-url="https://media.licdn.com/dms/image/v2/D560BAQFukaxYo548xg/company-logo_100_100/B56ZtRivaQHgAQ-/0/1766599620811/flipcx_logo?e=2147483647&amp;v=beta&amp;t=jVO7MO6j5bH-Xmi1btfdBx0UPq-zrGKeEd6Ay-b2M_8"
+        data-ghost-classes="artdeco-entity-image--ghost"
+        data-ghost-url="https://static.licdn.com/aero-v1/sc/h/6puxblwmhnodu6fjircz4dn4h" alt>
+    </div>
+    <div class="base-search-card__info">
+      <h3 class="base-search-card__title">
+        Software Engineer
+      </h3>
+      <h4 class="base-search-card__subtitle">
+        <a class="hidden-nested-link" data-tracking-client-ingraph
+          data-tracking-control-name="public_jobs_jserp-result_job-search-card-subtitle" data-tracking-will-navigate
+          href="https://www.linkedin.com/company/flipcx?trk=public_jobs_jserp-result_job-search-card-subtitle">
+          Flip
+        </a>
+      </h4>
+      <!---->
+      <div class="base-search-card__metadata">
+        <span class="job-search-card__location">
+          Brooklyn, NY
+        </span>
+        <div class="job-posting-benefits text-sm">
+          <icon class="job-posting-benefits__icon"
+            data-delayed-url="https://static.licdn.com/aero-v1/sc/h/8zmuwb93gzlb935fk4ao4z779"
+            data-svg-class-name="job-posting-benefits__icon-svg"></icon>
+          <span class="job-posting-benefits__text">
+            Be an early applicant
+            <!----> </span>
+        </div>
+        <time class="job-search-card__listdate" datetime="2026-04-30">
+          2 months ago
+        </time>
+        <!---->
+      </div>
+    </div>
+    <!---->
+  </div>
+</li>
+<li>
+  <div class="base-card relative w-full hover:no-underline focus:no-underline
+        base-card--link
+         base-search-card base-search-card--link job-search-card" data-entity-urn="urn:li:jobPosting:4405162929"
+    data-impression-id="jobs-search-result-6" data-reference-id="yhKuSIVvu7/hW6NYKsrEhw=="
+    data-tracking-id="DR4dXSmKT+2ZLzqyFbSJyg==" data-column="1" data-row="7">
+    <a class="base-card__full-link absolute top-0 right-0 bottom-0 left-0 p-0 z-[2] outline-offset-[4px]"
+      href="https://www.linkedin.com/jobs/view/software-engineer-new-grad-at-seatgeek-4405162929?position=7&amp;pageNum=0&amp;refId=yhKuSIVvu7%2FhW6NYKsrEhw%3D%3D&amp;trackingId=DR4dXSmKT%2B2ZLzqyFbSJyg%3D%3D"
+      data-tracking-control-name="public_jobs_jserp-result_search-card" data-tracking-client-ingraph
+      data-tracking-will-navigate>
+      <span class="sr-only">
+        Software Engineer - New Grad
+      </span>
+    </a>
+    <div class="search-entity-media">
+      <img class="artdeco-entity-image artdeco-entity-image--square-4
+          "
+        data-delayed-url="https://media.licdn.com/dms/image/v2/C4E0BAQHsVXif6p-JmA/company-logo_100_100/company-logo_100_100/0/1630619803078/seatgeek_logo?e=2147483647&amp;v=beta&amp;t=dyIZhwTvBV7o_R5MJEcUCVMyX6xpwWfT2SPCCEFIzsk"
+        data-ghost-classes="artdeco-entity-image--ghost"
+        data-ghost-url="https://static.licdn.com/aero-v1/sc/h/6puxblwmhnodu6fjircz4dn4h" alt>
+    </div>
+    <div class="base-search-card__info">
+      <h3 class="base-search-card__title">
+        Software Engineer - New Grad
+      </h3>
+      <h4 class="base-search-card__subtitle">
+        <a class="hidden-nested-link" data-tracking-client-ingraph
+          data-tracking-control-name="public_jobs_jserp-result_job-search-card-subtitle" data-tracking-will-navigate
+          href="https://www.linkedin.com/company/seatgeek?trk=public_jobs_jserp-result_job-search-card-subtitle">
+          SeatGeek
+        </a>
+      </h4>
+      <!---->
+      <div class="base-search-card__metadata">
+        <span class="job-search-card__location">
+          New York, NY
+        </span>
+        <!---->
+        <time class="job-search-card__listdate" datetime="2026-06-30">
+          1 week ago
+        </time>
+        <!---->
+      </div>
+    </div>
+    <!---->
+  </div>
+</li>
+<li>
+  <div class="base-card relative w-full hover:no-underline focus:no-underline
+        base-card--link
+         base-search-card base-search-card--link job-search-card" data-entity-urn="urn:li:jobPosting:4343752769"
+    data-impression-id="jobs-search-result-7" data-reference-id="yhKuSIVvu7/hW6NYKsrEhw=="
+    data-tracking-id="/A4MLhZz/otI6lca7xOzYw==" data-column="1" data-row="8">
+    <a class="base-card__full-link absolute top-0 right-0 bottom-0 left-0 p-0 z-[2] outline-offset-[4px]"
+      href="https://www.linkedin.com/jobs/view/software-engineer-at-neon-4343752769?position=8&amp;pageNum=0&amp;refId=yhKuSIVvu7%2FhW6NYKsrEhw%3D%3D&amp;trackingId=%2FA4MLhZz%2FotI6lca7xOzYw%3D%3D"
+      data-tracking-control-name="public_jobs_jserp-result_search-card" data-tracking-client-ingraph
+      data-tracking-will-navigate>
+      <span class="sr-only">
+        Software Engineer
+      </span>
+    </a>
+    <div class="search-entity-media">
+      <img class="artdeco-entity-image artdeco-entity-image--square-4
+          "
+        data-delayed-url="https://media.licdn.com/dms/image/v2/D560BAQE-5KPjdZIM6Q/company-logo_100_100/B56ZY70NdFHoAY-/0/1744760264788/neonpay_logo?e=2147483647&amp;v=beta&amp;t=_i719o7H4wLZ4pVfAmGX_Ybu7MP_Aai9B2rfpmfa9nM"
+        data-ghost-classes="artdeco-entity-image--ghost"
+        data-ghost-url="https://static.licdn.com/aero-v1/sc/h/6puxblwmhnodu6fjircz4dn4h" alt>
+    </div>
+    <div class="base-search-card__info">
+      <h3 class="base-search-card__title">
+        Software Engineer
+      </h3>
+      <h4 class="base-search-card__subtitle">
+        <a class="hidden-nested-link" data-tracking-client-ingraph
+          data-tracking-control-name="public_jobs_jserp-result_job-search-card-subtitle" data-tracking-will-navigate
+          href="https://www.linkedin.com/company/neoncommerce?trk=public_jobs_jserp-result_job-search-card-subtitle">
+          Neon
+        </a>
+      </h4>
+      <!---->
+      <div class="base-search-card__metadata">
+        <span class="job-search-card__location">
+          New York, NY
+        </span>
+        <!---->
+        <time class="job-search-card__listdate" datetime="2025-12-15">
+          6 months ago
+        </time>
+        <!---->
+      </div>
+    </div>
+    <!---->
+  </div>
+</li>
+<li>
+  <div class="base-card relative w-full hover:no-underline focus:no-underline
+        base-card--link
+         base-search-card base-search-card--link job-search-card" data-entity-urn="urn:li:jobPosting:4169330051"
+    data-impression-id="jobs-search-result-8" data-reference-id="yhKuSIVvu7/hW6NYKsrEhw=="
+    data-tracking-id="Fu5xE5khIX+CywEUJmdcRg==" data-column="1" data-row="9">
+    <a class="base-card__full-link absolute top-0 right-0 bottom-0 left-0 p-0 z-[2] outline-offset-[4px]"
+      href="https://www.linkedin.com/jobs/view/software-engineer-at-hype-4169330051?position=9&amp;pageNum=0&amp;refId=yhKuSIVvu7%2FhW6NYKsrEhw%3D%3D&amp;trackingId=Fu5xE5khIX%2BCywEUJmdcRg%3D%3D"
+      data-tracking-control-name="public_jobs_jserp-result_search-card" data-tracking-client-ingraph
+      data-tracking-will-navigate>
+      <span class="sr-only">
+        Software Engineer
+      </span>
+    </a>
+    <div class="search-entity-media">
+      <img class="artdeco-entity-image artdeco-entity-image--square-4
+          "
+        data-delayed-url="https://media.licdn.com/dms/image/v2/D4E0BAQH52t14puryEg/company-logo_100_100/company-logo_100_100/0/1715093511142/hypeshot_logo?e=2147483647&amp;v=beta&amp;t=rAIrvYE_n7jdk1AFS8NH5W7N4lkPeHEKjgHsUPTs014"
+        data-ghost-classes="artdeco-entity-image--ghost"
+        data-ghost-url="https://static.licdn.com/aero-v1/sc/h/6puxblwmhnodu6fjircz4dn4h" alt>
+    </div>
+    <div class="base-search-card__info">
+      <h3 class="base-search-card__title">
+        Software Engineer
+      </h3>
+      <h4 class="base-search-card__subtitle">
+        <a class="hidden-nested-link" data-tracking-client-ingraph
+          data-tracking-control-name="public_jobs_jserp-result_job-search-card-subtitle" data-tracking-will-navigate
+          href="https://www.linkedin.com/company/hypeshot?trk=public_jobs_jserp-result_job-search-card-subtitle">
+          Hype
+        </a>
+      </h4>
+      <!---->
+      <div class="base-search-card__metadata">
+        <span class="job-search-card__location">
+          New York, NY
+        </span>
+        <!---->
+        <time class="job-search-card__listdate" datetime="2025-02-28">
+          1 year ago
+        </time>
+        <!---->
+      </div>
+    </div>
+    <!---->
+  </div>
+</li>
+<li>
+  <div class="base-card relative w-full hover:no-underline focus:no-underline
+        base-card--link
+         base-search-card base-search-card--link job-search-card" data-entity-urn="urn:li:jobPosting:4377115063"
+    data-impression-id="jobs-search-result-9" data-reference-id="yhKuSIVvu7/hW6NYKsrEhw=="
+    data-tracking-id="oLQsW1+wWcDNp5K8xcUnNw==" data-column="1" data-row="10">
+    <a class="base-card__full-link absolute top-0 right-0 bottom-0 left-0 p-0 z-[2] outline-offset-[4px]"
+      href="https://www.linkedin.com/jobs/view/software-engineer-platform-at-authentic-4377115063?position=10&amp;pageNum=0&amp;refId=yhKuSIVvu7%2FhW6NYKsrEhw%3D%3D&amp;trackingId=oLQsW1%2BwWcDNp5K8xcUnNw%3D%3D"
+      data-tracking-control-name="public_jobs_jserp-result_search-card" data-tracking-client-ingraph
+      data-tracking-will-navigate>
+      <span class="sr-only">
+        Software Engineer - Platform
+      </span>
+    </a>
+    <div class="search-entity-media">
+      <img class="artdeco-entity-image artdeco-entity-image--square-4
+          "
+        data-delayed-url="https://media.licdn.com/dms/image/v2/D4E0BAQHAuSMAXYfeSQ/company-logo_100_100/B4EZ6Ap4hxHsAI-/0/1780274923957/authentic_insurance_logo?e=2147483647&amp;v=beta&amp;t=tz-4Ht1XQWC6j46PbYUoO73dNVn5gz1LticQu02H760"
+        data-ghost-classes="artdeco-entity-image--ghost"
+        data-ghost-url="https://static.licdn.com/aero-v1/sc/h/6puxblwmhnodu6fjircz4dn4h" alt>
+    </div>
+    <div class="base-search-card__info">
+      <h3 class="base-search-card__title">
+        Software Engineer - Platform
+      </h3>
+      <h4 class="base-search-card__subtitle">
+        <a class="hidden-nested-link" data-tracking-client-ingraph
+          data-tracking-control-name="public_jobs_jserp-result_job-search-card-subtitle" data-tracking-will-navigate
+          href="https://www.linkedin.com/company/authentic-insurance?trk=public_jobs_jserp-result_job-search-card-subtitle">
+          Authentic
+        </a>
+      </h4>
+      <!---->
+      <div class="base-search-card__metadata">
+        <span class="job-search-card__location">
+          New York, NY
+        </span>
+        <!---->
+        <time class="job-search-card__listdate" datetime="2026-02-24">
+          4 months ago
+        </time>
+        <!---->
+      </div>
+    </div>
+    <!---->
+  </div>
+</li>

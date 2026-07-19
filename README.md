@@ -8,19 +8,32 @@ Built as a university Data Mining project.
 
 ## What it does
 
-Two-phase pipeline:
+A **partitioned** LinkedIn guest-API scraper. The work is modeled as a matrix of
+**units** = `(country, category, keyword)`, where `keyword` is the canonical job
+title from `Data/CS_Jobs.json`. A run can be split across multiple devices, each
+device owning a **disjoint slice** of the matrix and writing to its own shard. A
+separate merge step combines all shards and dedups cross-device by `job_url`.
 
 ```
-Phase 1: src/Scraper.py
-  Reads job titles from Data/CS_Job_Titles_Categorized.json
-  Hits LinkedIn's guest search API (async, aiohttp)
-  Writes CSVs to Data/Scraped/{Country}/{Category}/*.csv
+src/main.py  <device>  ->  owns a slice of (country, category, keyword) units
+  for each owned unit:
+    loop fetch_and_parse_batch(keyword, country, start=unit_checkpoint)
+      dedup by job_url (seen set, per unit)
+      enrich via fetch_job_details(job_url)  -> description + salary
+      append to Data/shards/jobs.<device>.jsonl / .csv
+      advance per-unit checkpoint
+  Ctrl+C safe: each unit's checkpoint is saved
 
-Phase 2: src/batch.py
-  Reads each CSV, fetches individual job pages (sync, requests)
-  Extracts salary, description, criteria
-  Writes enriched JSONs to Data/Scraped/{Country}/{Category}/*.json
+src/merge.py  ->  combine all Data/shards/jobs.*.jsonl + Data/jobs.jsonl
+  dedup by job_url (cross-device)
+  write canonical Data/jobs.jsonl + Data/jobs.csv  (idempotent)
 ```
+
+Each scraped row is tagged with `country`, `category`, and `keyword` so the
+collected data is extensible and safely re-mergeable.
+
+> This is intentionally small-scale research scraping, not high-volume use. Rate
+> limiting (jitter + 429 backoff) is per-request and per-device.
 
 ---
 
@@ -40,8 +53,6 @@ This creates a `.venv` with Python 3.13 and installs dependencies via `uv`.
 pip install -r requirements.txt
 ```
 
-> Note: `requirements.txt` lists `random` and `asyncio` which are stdlib — ignore those lines.
-
 ### Environment variables
 
 ```bash
@@ -54,43 +65,80 @@ export BRAVE_PATH="/path/to/brave"  # optional, defaults to Chrome
 
 ## Usage
 
-### Phase 1 — Scrape search results
+### Single device (whole matrix)
 
 ```bash
-cd src
-python Scraper.py
+python src/main.py
 ```
 
-Reads `Data/CS_Job_Titles_Categorized.json` for job categories and titles. Scrapes LinkedIn's guest search API for each job title across all 9 countries. Outputs CSVs:
+Scrapes every `(country, category, keyword)` unit using the default 9 countries
+and all categories in `Data/CS_Jobs.json`. Writes to `Data/shards/jobs.local.jsonl`.
+Resume is automatic via per-unit checkpoints.
 
-```
-Data/Scraped/{Country}/{Category}/{Category}.csv
-```
+### Split across devices (mod-split)
 
-### Phase 2 — Enrich individual job pages
+Assign each device a deterministic, disjoint slice of the full matrix:
 
 ```bash
-python src/batch.py
+# Device 1 of 4
+python src/main.py --device 1 --of 4 --device-id dev1
+# Device 2 of 4
+python src/main.py --device 2 --of 4 --device-id dev2
+# Device 3 of 4
+python src/main.py --device 3 --of 4 --device-id dev3
+# Device 4 of 4
+python src/main.py --device 4 --of 4 --device-id dev4
 ```
 
-Runs from the project root. Processes all CSVs under `Data/Scraped/`. Fetches each job's LinkedIn page and extracts salary, description, and criteria. Outputs JSONs alongside the CSVs.
+`--device N --of M` keeps unit `i` on device `(i % M) + 1`, so the split is
+reproducible on any machine from the same inputs. `--device` and `--of` must be
+supplied together.
 
-Progress checkpoints every 20 jobs — safe to Ctrl+C and resume.
+### Explicit slice
 
-### Phase 2 (selective) — Enrich specific countries/categories
+Hand-pick a slice by country and/or category (overrides mod-split):
 
 ```bash
-python src/split.py <countries> <categories>
+python src/main.py \
+  --countries "Germany,Canada" \
+  --categories "Software Engineering,Data Science & AI" \
+  --device-id devG
 ```
 
-Examples:
+`--countries` and `--categories` accept comma-separated names (case-insensitive
+substring match against the canonical lists).
+
+### Merge device outputs
+
+After the devices finish, on any machine with the shards:
 
 ```bash
-python src/split.py Brazil "Data Science & AI"
-python src/split.py "Brazil,Canada" "Data Science & AI,Cybersecurity"
-python src/split.py all "Meme Jobs"        # one category, all countries
-python src/split.py Brazil all              # all categories in Brazil
+python src/merge.py
 ```
+
+Reads `Data/shards/jobs.*.jsonl` (and the existing `Data/jobs.jsonl` if present),
+dedups by `job_url`, and writes the canonical `Data/jobs.jsonl` + `Data/jobs.csv`.
+Re-running merge is safe (idempotent).
+
+### Reset checkpoints
+
+```bash
+python src/main.py --override-checkpoint            # resets this device's units
+python src/main.py --device 1 --of 4 --override-checkpoint
+```
+
+### Useful flags
+
+| Flag | Meaning |
+|---|---|
+| `--device` / `--of` | mod-split assignment (1-based index, total count) |
+| `--countries` | comma-separated country filter (overrides mod-split) |
+| `--categories` | comma-separated category filter |
+| `--device-id` | shard identifier (defaults to `dev<N>` or `local`) |
+| `--full-countries` | use the full vendored country list instead of the default 9 |
+| `--override-checkpoint` | reset this device's per-unit checkpoints |
+| `--categories-file` | path to the categories JSON (default `Data/CS_Jobs.json`) |
+| `--data-dir` | output root (default `Data`) |
 
 ---
 
@@ -102,20 +150,29 @@ python src/split.py Brazil all              # all categories in Brazil
 | 2nd class | Poland, Finland, Brazil |
 | 3rd class | Egypt, Madagascar, Morocco |
 
+The default set is the 9 above. Pass `--full-countries` to scrape the full
+vendored list (see `src/data/countries.py`).
+
 ## Categories
 
 Software Engineering, Data Science & AI, Cybersecurity, Cloud & Network Engineering, DevOps & SRE, Robotics & Automation, Enterprise IT & Systems Administration, Bioinformatics & Computational Biology, Meme Jobs.
+
+These come from `Data/CS_Jobs.json`. `keyword` for each unit is the job's
+canonical `name` (alternatives are not used as separate searches, to bound
+request volume).
 
 ---
 
 ## Rate limiting
 
-- 2–5s random jitter between requests
-- 10–30s between batches of 20–100 jobs
-- Exponential backoff on HTTP 429 (up to 3 retries)
-- Auto-increases batch delay after 3 consecutive rate limits
+- 1–2s random jitter between requests
+- Bounded retry with exponential backoff on HTTP 429 (up to 3 retries)
+- Silent failures return `None` / `(None, None)` and advance the checkpoint —
+  no run is killed by a single bad batch
 
-This is a small-scale research scraper, not designed for high-volume use.
+This is a small-scale research scraper, not designed for high-volume use. Each
+device is independent, so distributing work multiplies total request volume;
+keep the jitter and backoff in place.
 
 ---
 
@@ -123,6 +180,8 @@ This is a small-scale research scraper, not designed for high-volume use.
 
 ```bash
 nix-shell --run "pytest tests/ -v"
+nix-shell --run "behave tests/features"   # integration specs (network-gated)
+bash scripts/check-complete.sh            # both gates: ALL PHASES COMPLETE
 ```
 
 ---
@@ -131,29 +190,38 @@ nix-shell --run "pytest tests/ -v"
 
 ```
 ├── Data/
-│   ├── CS_Job_Titles_Categorized.json   # input: job categories + titles
-│   ├── Scraped/                          # output: CSVs and JSONs per country/category
-│   └── Proccessed_data/                  # processed outputs (note: typo is intentional)
+│   ├── CS_Jobs.json                      # input: categories + job titles
+│   ├── shards/                           # per-device output (jobs.<device>.jsonl/.csv)
+│   ├── checkpoints/<device>.json         # per-unit resume cursors
+│   └── jobs.csv / jobs.jsonl            # canonical merged output
 │
 ├── src/
-│   ├── Scraper.py                        # Phase 1: scrape search results
-│   ├── batch.py                          # Phase 2: enrich job URLs
-│   ├── split.py                          # Phase 2 CLI: selective enrichment
-│   ├── extract_links.py                  # Utility: extract URLs from CSVs
-│   ├── helpers/
-│   │   ├── LinkedinAPI2.py              # Async scraper (aiohttp)
-│   │   ├── UserAgent.py                 # Random user agent generation
-│   │   ├── normalize.py                 # LinkedIn URL normalization
-│   │   ├── resolve_path.py              # Path resolution utility
-│   │   ├── makefolder.py                # Dir/file/CSV helpers
-│   │   └── data_fetcher_from_Json_DS.py # JSON data loading
-│   └── URL/
-│       ├── salary.py                    # Salary extraction from HTML
-│       ├── description.py               # Description extraction from HTML
-│       └── extract_criteria.py          # Job criteria extraction from HTML
+│   ├── main.py                           # partitioned run loop over owned units
+│   ├── scraper/
+│   │   ├── scrape.py                     # fetch_listings / fetch_job_details / parse_listings
+│   │   ├── checkpoint.py                 # per-unit checkpoint get/update/reset
+│   │   └── header.py                     # request headers + random user agent
+│   └── data/
+│       ├── storage.py                    # append_to_csv/jsonl + shard variants (polars)
+│       ├── countries.py                  # vendored country list + normalize/resolve
+│       └── units.py                      # build_units / split_units / filter_units
 │
-├── tests/                               # pytest test suite (84 tests)
+├── tests/
+│   ├── fixtures/debug_response.html      # captured LinkedIn search HTML
+│   ├── test_scraper.py                   # pytest unit tests (no network)
+│   ├── test_units.py                     # unit-matrix build/split/filter tests
+│   ├── test_merge.py                     # merge dedup/idempotency tests
+│   └── features/                         # behave Gherkin specs (scrape/distribute/merge)
+│
+├── scripts/
+│   ├── merge.py                          # combine shards -> canonical output
+│   ├── capture_response.py               # utility: save a raw search response
+│   └── test_selector.py                  # utility: probe HTML selectors
 ├── requirements.txt
 ├── shell.nix                            # Nix dev environment
 └── AGENTS.md                            # Agent instructions
 ```
+
+See [`Docs/distributed_scraping.md`](Docs/distributed_scraping.md) for the
+design rationale and the partitioning pattern.
+
