@@ -10,3 +10,6 @@
 # Scraped data
 jobs.*
 checkpoint.json
+
+# For others to commit later:
+Docs/Countries_Comparison.md
