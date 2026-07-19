@@ -181,7 +181,7 @@ keep the jitter and backoff in place.
 ```bash
 nix-shell --run "pytest tests/ -v"
 nix-shell --run "behave tests/features"   # integration specs (network-gated)
-bash scripts/check-complete.sh            # both gates: ALL PHASES COMPLETE
+bash check-complete.sh                  # both gates: ALL PHASES COMPLETE
 ```
 
 ---
@@ -207,16 +207,15 @@ bash scripts/check-complete.sh            # both gates: ALL PHASES COMPLETE
 │       └── units.py                      # build_units / split_units / filter_units
 │
 ├── tests/
-│   ├── fixtures/debug_response.html      # captured LinkedIn search HTML
+│   ├── fixtures/debug_response.html.example  # captured LinkedIn search HTML
 │   ├── test_scraper.py                   # pytest unit tests (no network)
 │   ├── test_units.py                     # unit-matrix build/split/filter tests
 │   ├── test_merge.py                     # merge dedup/idempotency tests
 │   └── features/                         # behave Gherkin specs (scrape/distribute/merge)
 │
-├── scripts/
-│   ├── merge.py                          # combine shards -> canonical output
-│   ├── capture_response.py               # utility: save a raw search response
-│   └── test_selector.py                  # utility: probe HTML selectors
+├── src/
+│   └── merge.py                          # combine shards -> canonical output
+├── check-complete.sh                     # test gate: pytest + behave -> ALL PHASES COMPLETE
 ├── requirements.txt
 ├── shell.nix                            # Nix dev environment
 └── AGENTS.md                            # Agent instructions
