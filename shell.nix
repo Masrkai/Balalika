@@ -60,6 +60,7 @@ pkgs.mkShell {
           pyinstaller-versionfile # Create a windows version-file from a simple YAML file that can be used by PyInstaller
 
           #-> testing
+          just
           pytest
           pytest-cov
           pytest-aio
