@@ -1,8 +1,15 @@
-# LinkedIn Job Market Analysis
+# Balalika
 
 A lightweight scraper that collects CS job listings from LinkedIn across 9 countries and 9 specializations, then enriches each listing with salary, description, and job criteria data.
 
-Built as a university Data Mining project.
+Built as a university Data Mining project (and for a doctor who didn't deserve it).
+
+## Why
+
+because linkedin is so stupid of an idea that it allowed corporations to analyse the market but not consumers which is INSANE.
+so this is a protest against this nasty cornering situation against the situation of job market and how to collect data on it putting US in our well deserved seat where we can again OBSERVE THE JOB MARKET.
+So next time a corporation say the very stupid arguement that they are hiring more than ever or paying more than ever or Ai didn't effect jobs you have numbers to back this up.
+also this has the potential to be a distributed effort
 
 ---
 
@@ -51,14 +58,6 @@ This creates a `.venv` with Python 3.13 and installs dependencies via `uv`.
 
 ```bash
 pip install -r requirements.txt
-```
-
-### Environment variables
-
-```bash
-export LINKEDIN_EMAIL="dummy@example.com"
-export LINKEDIN_PASSWORD="secure_password"
-export BRAVE_PATH="/path/to/brave"  # optional, defaults to Chrome
 ```
 
 ---
@@ -129,26 +128,26 @@ python src/main.py --device 1 --of 4 --override-checkpoint
 
 ### Useful flags
 
-| Flag | Meaning |
-|---|---|
-| `--device` / `--of` | mod-split assignment (1-based index, total count) |
-| `--countries` | comma-separated country filter (overrides mod-split) |
-| `--categories` | comma-separated category filter |
-| `--device-id` | shard identifier (defaults to `dev<N>` or `local`) |
-| `--full-countries` | use the full vendored country list instead of the default 9 |
-| `--override-checkpoint` | reset this device's per-unit checkpoints |
-| `--categories-file` | path to the categories JSON (default `Data/CS_Jobs.json`) |
-| `--data-dir` | output root (default `Data`) |
+| Flag                    | Meaning                                                     |
+|-------------------------|-------------------------------------------------------------|
+| `--device` / `--of`     | mod-split assignment (1-based index, total count)           |
+| `--countries`           | comma-separated country filter (overrides mod-split)        |
+| `--categories`          | comma-separated category filter                             |
+| `--device-id`           | shard identifier (defaults to `dev<N>` or `local`)          |
+| `--full-countries`      | use the full vendored country list instead of the default 9 |
+| `--override-checkpoint` | reset this device's per-unit checkpoints                    |
+| `--categories-file`     | path to the categories JSON (default `Data/CS_Jobs.json`)   |
+| `--data-dir`            | output root (default `Data`)                                |
 
 ---
 
 ## Countries scraped
 
-| Tier | Countries |
-|---|---|
+| Tier      | Countries                      |
+|-----------|--------------------------------|
 | 1st class | United States, Germany, Canada |
-| 2nd class | Poland, Finland, Brazil |
-| 3rd class | Egypt, Madagascar, Morocco |
+| 2nd class | Poland, Finland, Brazil        |
+| 3rd class | Egypt, Madagascar, Morocco     |
 
 The default set is the 9 above. Pass `--full-countries` to scrape the full
 vendored list (see `src/data/countries.py`).
@@ -179,48 +178,14 @@ keep the jitter and backoff in place.
 ## Running tests
 
 ```bash
-nix-shell --run "pytest tests/ -v"
-nix-shell --run "behave tests/features"   # integration specs (network-gated)
-bash check-complete.sh                  # both gates: ALL PHASES COMPLETE
+just test
 ```
 
 ---
 
-## Project structure
-
-```
-├── Data/
-│   ├── CS_Jobs.json                      # input: categories + job titles
-│   ├── shards/                           # per-device output (jobs.<device>.jsonl/.csv)
-│   ├── checkpoints/<device>.json         # per-unit resume cursors
-│   └── jobs.csv / jobs.jsonl            # canonical merged output
-│
-├── src/
-│   ├── main.py                           # partitioned run loop over owned units
-│   ├── scraper/
-│   │   ├── scrape.py                     # fetch_listings / fetch_job_details / parse_listings
-│   │   ├── checkpoint.py                 # per-unit checkpoint get/update/reset
-│   │   └── header.py                     # request headers + random user agent
-│   └── data/
-│       ├── storage.py                    # append_to_csv/jsonl + shard variants (polars)
-│       ├── countries.py                  # vendored country list + normalize/resolve
-│       └── units.py                      # build_units / split_units / filter_units
-│
-├── tests/
-│   ├── fixtures/debug_response.html.example  # captured LinkedIn search HTML
-│   ├── test_scraper.py                   # pytest unit tests (no network)
-│   ├── test_units.py                     # unit-matrix build/split/filter tests
-│   ├── test_merge.py                     # merge dedup/idempotency tests
-│   └── features/                         # behave Gherkin specs (scrape/distribute/merge)
-│
-├── src/
-│   └── merge.py                          # combine shards -> canonical output
-├── check-complete.sh                     # test gate: pytest + behave -> ALL PHASES COMPLETE
-├── requirements.txt
-├── shell.nix                            # Nix dev environment
-└── AGENTS.md                            # Agent instructions
-```
-
 See [`Docs/distributed_scraping.md`](Docs/distributed_scraping.md) for the
 design rationale and the partitioning pattern.
 
+---
+
+see the [License](LICENSE)
