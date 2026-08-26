@@ -1,11 +1,8 @@
-import json
-from pathlib import Path
 
 import polars as pl
 
 from src.data.storage import append_to_jsonl_shard
 from src.merge import main as merge_main
-import argparse
 
 
 def _write_shard(data_dir, device_id, rows):

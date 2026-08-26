@@ -1,7 +1,8 @@
 import pytest
 from pathlib import Path
 
-from src.scraper.scrape import parse_listings, parse_salary, fetch_and_parse_batch
+from unittest.mock import patch, MagicMock
+from src.scraper.scrape import parse_listings, parse_salary, fetch_and_parse_batch, normalize_url, JobRecord, _request
 from src.scraper.checkpoint import get_checkpoint, update_checkpoint, reset_checkpoint
 from src.data.storage import append_to_csv, append_to_jsonl
 
@@ -96,3 +97,42 @@ def test_storage_jsonl_append(tmp_path):
     append_to_jsonl(rows, path)
     lines = path.read_text().strip().splitlines()
     assert len(lines) == 2
+
+
+def test_normalize_url():
+    url = "https://www.linkedin.com/jobs/view/12345?refId=abc&trackingId=xyz&utm_source=test&other=keep"
+    normalized = normalize_url(url)
+    assert "refId" not in normalized
+    assert "trackingId" not in normalized
+    assert "utm_source" not in normalized
+    assert "other=keep" in normalized
+    assert normalized.startswith("https://www.linkedin.com/jobs/view/12345")
+
+
+def test_job_record_validation():
+    valid_data = {
+        'job_title': 'Software Engineer',
+        'company_name': 'Tech Corp',
+        'job_url': 'https://www.linkedin.com/jobs/view/12345'
+    }
+    record = JobRecord(**valid_data)
+    assert record.job_title == 'Software Engineer'
+
+    with pytest.raises(Exception):
+        JobRecord(company_name='Tech Corp')
+
+
+def test_request_retry_on_429():
+    with patch('src.scraper.scrape.session.get') as mock_get:
+        mock_resp_429 = MagicMock()
+        mock_resp_429.status_code = 429
+        mock_resp_200 = MagicMock()
+        mock_resp_200.status_code = 200
+        mock_resp_200.text = "success"
+
+        mock_get.side_effect = [mock_resp_429, mock_resp_200]
+
+        res = _request("http://test.com")
+        assert res == "success"
+        assert mock_get.call_count == 2
+

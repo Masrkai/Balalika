@@ -1,5 +1,5 @@
 from behave import given, when, then
-from src.scraper.scrape import parse_listings, parse_salary, fetch_job_details
+from src.scraper.scrape import parse_listings, fetch_job_details
 from src.scraper.checkpoint import get_checkpoint, update_checkpoint
 
 
@@ -97,7 +97,8 @@ def step_then_null_result(context):
 
 @given('an existing checkpoint at start index {index}')
 def step_given_checkpoint(context, index):
-    import tempfile, pathlib
+    import tempfile
+    import pathlib
     context.cp = pathlib.Path(tempfile.mktemp(suffix=".json"))
     update_checkpoint(context.cp, int(index))
 

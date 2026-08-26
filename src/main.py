@@ -1,9 +1,8 @@
 import argparse
 from pathlib import Path
 
-from src.data.countries import resolve_countries
 from src.data.units import build_units, split_units, filter_units, Unit
-from src.scraper.scrape import fetch_and_parse_batch, fetch_job_details
+from src.scraper.scrape import fetch_and_parse_batch, fetch_job_details_batch, normalize_url
 from src.scraper.checkpoint import (
     get_unit_checkpoint,
     update_unit_checkpoint,
@@ -84,19 +83,16 @@ def run_unit(unit: Unit, checkpoint_path: Path, data_dir: Path, device_id: str) 
         new_jobs = []
         for job in jobs:
             url = job.get("job_url")
-            if url in seen_urls:
+            norm_url = normalize_url(url)
+            if norm_url in seen_urls:
                 continue
-            seen_urls.add(url)
+            seen_urls.add(norm_url)
+            job["job_url"] = norm_url
             new_jobs.append(job)
         jobs = new_jobs
 
         if jobs:
-            for job in jobs:
-                description, salary_detail = fetch_job_details(job["job_url"])
-                if description:
-                    job["description"] = description
-                if salary_detail:
-                    job["salary"] = salary_detail
+            jobs = fetch_job_details_batch(jobs)
             append_to_jsonl_shard(jobs, data_dir, device_id)
             append_to_csv_shard(jobs, data_dir, device_id)
             print(f"[{unit.id}] saved {len(jobs)} jobs. checkpoint -> {next_start}")
