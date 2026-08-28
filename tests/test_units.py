@@ -52,3 +52,15 @@ def test_filter_units():
     assert filtered
     assert all(u.country == "Germany" for u in filtered)
     assert all(u.category == "Software Engineering" for u in filtered)
+
+
+def test_build_units_with_toml_config():
+    config_path = Path(__file__).parent.parent / "Data" / "scraping_config.toml"
+    if config_path.exists():
+        units = build_units(CATS, config_file=config_path)
+        assert len(units) > 0
+        categories_in_units = {u.category for u in units}
+        assert "Software Engineering" in categories_in_units
+        countries_in_units = {u.country for u in units}
+        assert "United States" in countries_in_units
+

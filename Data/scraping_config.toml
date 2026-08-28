@@ -1,0 +1,36 @@
+# Balalika Scraping Configuration
+
+[global]
+default_countries = ["United States", "Germany", "Canada"]
+
+# Specific category-to-country and keyword mappings
+[[categories]]
+name = "Software Engineering"
+countries = ["United States", "Germany", "United Kingdom", "Canada"]
+keywords = [
+    "Software Engineer",
+    "Backend Engineer",
+    "Frontend Engineer",
+    "Full Stack Engineer",
+    "Mobile Developer"
+]
+
+[[categories]]
+name = "Data Science & AI"
+countries = ["United States", "Germany", "Finland"]
+keywords = [
+    "Data Scientist",
+    "Machine Learning Engineer",
+    "AI Engineer",
+    "Data Engineer"
+]
+
+[[categories]]
+name = "DevOps & Infrastructure"
+countries = ["United States", "Germany", "Canada", "Poland"]
+keywords = [
+    "DevOps Engineer",
+    "SRE",
+    "Cloud Engineer",
+    "Platform Engineer"
+]

@@ -1,4 +1,5 @@
 import json
+import tomllib
 from dataclasses import dataclass
 from pathlib import Path
 from typing import List
@@ -27,14 +28,42 @@ def build_units(
     categories_file: Path,
     countries_spec: str | None = None,
     full_countries: bool = False,
+    config_file: Path | None = None,
 ) -> List[Unit]:
-    """Build the full (country, category, keyword) unit matrix.
+    """Build the (country, category, keyword) unit matrix, optionally guided by a TOML config file.
 
     Keyword = canonical job `name` only (alternatives ignored to bound volume).
     """
-    countries = resolve_countries(countries_spec, full=full_countries)
     categories = _load_categories(categories_file)
     units: List[Unit] = []
+
+    if config_file and config_file.exists():
+        with open(config_file, "rb") as f:
+            config = tomllib.load(f)
+        
+        global_config = config.get("global", {})
+        default_countries = global_config.get("default_countries", [])
+        
+        cfg_categories = config.get("categories", [])
+        if cfg_categories:
+            cat_dict = {cat["name"]: cat for cat in categories}
+            for cfg_cat in cfg_categories:
+                cat_name = cfg_cat.get("name")
+                if cat_name not in cat_dict:
+                    continue
+                cat_data = cat_dict[cat_name]
+                cfg_countries = cfg_cat.get("countries", default_countries)
+                cfg_keywords = cfg_cat.get("keywords", [])
+                
+                for job in cat_data.get("jobs", []):
+                    keyword = job["name"]
+                    if cfg_keywords and keyword not in cfg_keywords:
+                        continue
+                    for country in cfg_countries:
+                        units.append(Unit(country=country, category=cat_name, keyword=keyword))
+            return units
+
+    countries = resolve_countries(countries_spec, full=full_countries)
     for cat in categories:
         cat_name = cat["name"]
         for job in cat.get("jobs", []):

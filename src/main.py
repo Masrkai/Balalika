@@ -1,6 +1,7 @@
 import argparse
 from pathlib import Path
 
+from src.version import __version__
 from src.data.units import build_units, split_units, filter_units, Unit
 from src.scraper.scrape import fetch_and_parse_batch, fetch_job_details_batch, normalize_url
 from src.scraper.checkpoint import (
@@ -15,6 +16,7 @@ DEFAULT_CATEGORIES = Path("Data/CS_Jobs.json")
 
 def main():
     parser = argparse.ArgumentParser(description="Distributed LinkedIn job scraper.")
+    parser.add_argument("--version", action="version", version=f"%(prog)s {__version__}")
     parser.add_argument("--device", type=int, default=None, help="Device index (1-based)")
     parser.add_argument("--of", type=int, default=None, help="Total device count for mod-split")
     parser.add_argument("--countries", type=str, default=None,
@@ -28,6 +30,8 @@ def main():
     parser.add_argument("--override-checkpoint", action="store_true",
                         help="Reset this device's per-unit checkpoints")
     parser.add_argument("--categories-file", type=Path, default=DEFAULT_CATEGORIES)
+    parser.add_argument("--config", type=Path, default=Path("Data/scraping_config.toml"),
+                        help="Path to TOML scraping configuration file")
     parser.add_argument("--data-dir", type=Path, default=Path("Data"))
     args = parser.parse_args()
 
@@ -44,11 +48,14 @@ def main():
         print(f"Resetting checkpoints for {device_id}...")
         reset_unit_checkpoint(checkpoint_path)
 
-    # Build the full matrix, then select this device's slice.
+    # Build matrix using config if no explicit overrides provided
+    config_file = args.config if (args.countries is None and args.categories is None and args.config.exists()) else None
+
     all_units = build_units(
         args.categories_file,
         countries_spec=args.countries,
         full_countries=args.full_countries,
+        config_file=config_file,
     )
     if args.device is not None and args.of is not None:
         owned = split_units(all_units, args.device, args.of)
