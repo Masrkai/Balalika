@@ -5,6 +5,11 @@ All notable changes to the Balalika project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to Semantic Versioning.
 
+## [1.0.1] - 2026-08-28
+
+### Changed
+- refactor(checkpoint): Replace JSON serialization in checkpoint module with flat text and key=value format (unit_id=start_index)
+
 ## [1.0.0] - 2026-08-28
 
 ### Added
